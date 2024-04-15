@@ -9,6 +9,8 @@ packages = [{include = "hexlet_code"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+python-dotenv = "^1.0.1"
+django = "^5.0.4"
 
 
 [build-system]
