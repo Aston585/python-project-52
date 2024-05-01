@@ -11,6 +11,9 @@ packages = [{include = "hexlet_code"}]
 python = "^3.11"
 python-dotenv = "^1.0.1"
 django = "^5.0.4"
+psycopg2-binary = "^2.9.9"
+dj-database-url = "^2.1.0"
+django-bootstrap5 = "^24.2"
 
 
 [build-system]
