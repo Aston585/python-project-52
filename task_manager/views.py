@@ -1,8 +1,14 @@
-# from django.http import HttpResponse
-from django.shortcuts import render
-from django.views import View
+from django.views.generic import TemplateView
+from django.contrib.auth.views import LoginView, LogoutView
 
 
-class IndexView(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'index.html')
+class HomePageView(TemplateView):
+    template_name = "index.html"
+
+
+class Login(LoginView):
+    pass
+
+
+class Logout(LogoutView):
+    pass

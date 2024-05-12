@@ -1,8 +1,10 @@
+.env
 .env/
 .venv/
 env/
 venv/
 *.env
+.gitignore
 
 *.pyc
 db.sqlite3

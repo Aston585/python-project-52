@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block create_user %}
+<div class="container wrapper flex-grow-1">
+   <h1 class="my-4"> {% translate "Registration" %}</h1>
+	 <form method="post">
+		{% csrf_token %}
+		{% for field in form %}
+			<div>
+				{% field %}
+			</div>
+			{% endfor %}
+	 </form>
+</div>
+{% endblock %}
