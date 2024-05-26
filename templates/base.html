@@ -36,6 +36,8 @@
       </div>
     </nav>
 		
+		{% bootstrap_messages %}
+		
     {% block content %}
     {% endblock %}
 		
@@ -44,6 +46,12 @@
 		
     {% block create_user %}
     {% endblock %}
+		
+		{% block update_user %}
+		{% endblock %}
+		
+		{% block delete_user %}
+		{% endblock %}
 
     </div>
     <footer>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-19 14:13+0000\n"
+"POT-Creation-Date: 2024-05-26 09:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,25 +20,51 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/users/forms.py:13 task_manager/users/forms.py:23
-msgid "Password is too short"
+#: task_manager/users/forms.py:10
+msgid ""
+"The entered password is too short. It must contain at least 3 characters."
 msgstr ""
+"Введённый пароль слишком короткий. Он должен содержать как минимум 3 символа."
 
-#: task_manager/users/forms.py:14
+#: task_manager/users/forms.py:15
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
-#: task_manager/users/forms.py:16
-msgid "Your password should be at least 3 symbols long."
-msgstr "Ваш пароль должен содержать как минимум 3 символа."
+#: task_manager/users/forms.py:18
+msgid "<ul><li>Your password must contain at least 3 characters.</li></ul>"
+msgstr "<ul><li>Ваш пароль должен содержать как минимум 3 символа.</li></ul>"
 
-#: task_manager/users/forms.py:20
+#: task_manager/users/forms.py:25
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
-#: task_manager/users/forms.py:26
+#: task_manager/users/forms.py:31
 msgid "Re-enter your password again, please."
 msgstr "Для подтверждения введите, пожалуйста, пароль ещё раз."
+
+#: task_manager/users/forms.py:47
+msgid "Passwords don't match"
+msgstr "Введенные пароли не совпадают."
+
+#: task_manager/users/forms.py:55
+msgid "Username already exists"
+msgstr "Пользователь с таким именем уже существует."
+
+#: task_manager/users/views.py:19
+msgid "User successfully registered"
+msgstr "Пользователь успешно зарегистрирован"
+
+#: task_manager/users/views.py:27
+msgid "User successfully changed"
+msgstr "Пользователь успешно изменен"
+
+#: task_manager/users/views.py:28 task_manager/users/views.py:37
+msgid "You do not have permission to change another user."
+msgstr "У вас нет прав для изменения другого пользователя."
+
+#: task_manager/users/views.py:36
+msgid "User deleted successfully"
+msgstr "Пользователь успешно удален"
 
 #: templates/base.html:9
 msgid "Task manager Hexlet"
@@ -76,6 +102,22 @@ msgstr "Узнать больше"
 msgid "Register"
 msgstr "Зарегистрировать"
 
+#: templates/users/delete_user.html:7
+msgid "Remove user"
+msgstr "Удаление пользователя"
+
+#: templates/users/delete_user.html:11
+msgid "Yes, remove"
+msgstr "Да, удалить"
+
+#: templates/users/update_user.html:7
+msgid "Changing User"
+msgstr "Изменение пользователя"
+
+#: templates/users/update_user.html:11
+msgid "Change"
+msgstr "Изменить"
+
 #: templates/users/users_list.html:10
 msgid "Username"
 msgstr "Имя пользователя"
@@ -99,3 +141,6 @@ msgstr "Изменить"
 #: templates/users/users_list.html:23
 msgid "Delete"
 msgstr "Удалить"
+
+#~ msgid "Your password should be at least 3 symbols long."
+#~ msgstr "Ваш пароль должен содержать как минимум 3 символа."
