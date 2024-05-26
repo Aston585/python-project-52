@@ -21,43 +21,39 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'users:list_users' %}">{% translate "Users" %}</a>
           </li>
-          
         </ul>
+				{% if user.is_authenticated %}
         <ul class="navbar-nav">
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/login/">{% translate "Login" %}</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'users:create_user' %}">{% translate "Registration" %}</a>
-            </li>
-          
+        	<li class = "nav-item "><a class="nav-link" href="{% url "home" %}">{% translate "Statuses" %}</a></li>
+        	<li class = "nav-item "><a class="nav-link" href="{% url "home" %}">{% translate "Marks" %}</a></li>
+        	<li class = "nav-item "><a class="nav-link" href="{% url "home" %}">{% translate "Tasks" %}</a></li>
+        	<li class = "nav-item">
+						<form action="{% url 'logout' %}" method="post">
+							{% csrf_token %}
+							<button class="nav-link button-no-border" type="submit">{% translate "Logout" %}</button>
+						</form>
+					</li>
+					
+				</ul>
+				{% else %}
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="/login/">{% translate "Login" %}</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'users:create_user' %}">{% translate "Registration" %}</a></li>
         </ul>
+				{% endif %}
       </div>
     </nav>
 		
-		{% bootstrap_messages %}
+		<div class="container">{% bootstrap_messages %}</div>
 		
     {% block content %}
     {% endblock %}
-		
-    {% block list_users %}
-    {% endblock %}
-		
-    {% block create_user %}
-    {% endblock %}
-		
-		{% block update_user %}
-		{% endblock %}
-		
-		{% block delete_user %}
-		{% endblock %}
-
     </div>
+		
     <footer>
       <div class="container my-5 pt-4 border-top">
         <a target="_blank" href="https://ru.hexlet.io">Hexlet</a>
-    </div>
+    	</div>
     </footer>
   </body>
 </html>

@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.models import User as UserModel
+from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import MinLengthValidator
 
@@ -32,7 +32,7 @@ class UserCreateForm(forms.ModelForm):
     )
 
     class Meta:
-        model = UserModel
+        model = get_user_model()
         fields = [
             "first_name",
             "last_name",

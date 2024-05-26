@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% block content %}
+    <div class="container wrapper flex-grow-1">
+    	<h1 class="my-3"> {% translate "Entrance" %} </h1>
+  		<form method="post" action=".">
+    	{% csrf_token %}
+    	{% for field in form %}
+      	{% bootstrap_field field %}
+    	{% endfor %}
+    	{% bootstrap_button content=_("Enter") button_type="submit" button_class="btn btn-primary" %}
+    	</form>
+    </div>
+{% endblock %}
