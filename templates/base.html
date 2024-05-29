@@ -30,7 +30,7 @@
         	<li class = "nav-item">
 						<form action="{% url 'logout' %}" method="post">
 							{% csrf_token %}
-							<button class="nav-link button-no-border" type="submit">{% translate "Logout" %}</button>
+							<button class="btn nav-link" type="submit">{% translate "Logout" %}</button>
 						</form>
 					</li>
 					
@@ -45,7 +45,7 @@
     </nav>
 		
 		<div class="container">{% bootstrap_messages %}</div>
-		
+
     {% block content %}
     {% endblock %}
     </div>

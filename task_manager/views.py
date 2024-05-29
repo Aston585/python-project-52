@@ -1,6 +1,5 @@
 from django.contrib import messages
 from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic import TemplateView
 from django.utils.translation import gettext_lazy as _
 
@@ -21,9 +20,7 @@ class Login(LoginView):
         return super().form_invalid(form)
 
 
-class LogoutView(LogoutView):
-
+class Logout(LogoutView):  # !Не появляется флеш после логаута!
     def dispatch(self, request, *args, **kwargs):
-        messages.info(request, _("You are logged out"))
+        messages.info(self.request, _("You are logged out"))
         return super().dispatch(request, *args, **kwargs)
-
