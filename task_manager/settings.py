@@ -144,3 +144,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+FIXTURE_DIRS = [
+    os.path.join(BASE_DIR, 'task_manager/tests/fixtures'),
+]
