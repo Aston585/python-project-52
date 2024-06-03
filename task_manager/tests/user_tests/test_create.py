@@ -1,12 +1,25 @@
 from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth import get_user_model
+import json
+from os.path import join
+from task_manager.settings import FIXTURE_DIRS
 
 
 class UserCreateTest(TestCase):
-    fixtures = ['user.json']
+
+    def load_fixture(self):
+        fixture_user = join(FIXTURE_DIRS[0], 'user.json')
+        with open(fixture_user, 'r') as f:
+            return json.load(f)
 
     def test_user_create(self):
-        response = self.client.post(reverse("create_user"), self.fixtures)
-        new_user = get_user_model().objects.get(pk=1)
-        self.assertEqual(new_user.username, response.get('username'))
+        fixture = self.load_fixture()
+        self.client.post(reverse("users:create_user"), fixture)
+        new_user = get_user_model().objects.filter(
+            username=fixture.get('username')
+            ).first()
+        self.assertEqual(
+            new_user.username,
+            fixture.get('username')
+        )
