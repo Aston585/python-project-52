@@ -23,7 +23,7 @@ class UserCreateView(SuccessMessageMixin, CreateView):
     success_message = _('User successfully registered')
 
 
-class UserEditView(
+class UserUpdateView(
     UserPassesTestCustomMixin,
     LoginRequiredCustomMixin,
     SuccessMessageMixin,

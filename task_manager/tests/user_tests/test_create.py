@@ -9,8 +9,8 @@ from task_manager.settings import FIXTURE_DIRS
 class UserCreateTest(TestCase):
 
     def load_fixture(self):
-        fixture_user = join(FIXTURE_DIRS[0], 'user.json')
-        with open(fixture_user, 'r') as f:
+        fixture_user_create = join(FIXTURE_DIRS[0], 'user_create.json')
+        with open(fixture_user_create, 'r') as f:
             return json.load(f)
 
     def test_user_create(self):
