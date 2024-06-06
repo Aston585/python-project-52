@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-26 15:16+0000\n"
+"POT-Creation-Date: 2024-06-06 17:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,33 +46,38 @@ msgstr "Для подтверждения введите, пожалуйста, 
 msgid "Passwords don't match"
 msgstr "Введенные пароли не совпадают."
 
-#: task_manager/users/views.py:19
-msgid "User successfully registered"
-msgstr "Пользователь успешно зарегистрирован"
+#: task_manager/users/mixins.py:14
+msgid "You are not authorized! Please log in."
+msgstr ""
 
-#: task_manager/users/views.py:27
-msgid "User successfully changed"
-msgstr "Пользователь успешно изменен"
-
-#: task_manager/users/views.py:28 task_manager/users/views.py:36
+#: task_manager/users/mixins.py:34 task_manager/users/views.py:37
+#: task_manager/users/views.py:50
 msgid "You do not have permission to change another user."
 msgstr "У вас нет прав для изменения другого пользователя."
 
-#: task_manager/users/views.py:35
+#: task_manager/users/views.py:23
+msgid "User successfully registered"
+msgstr "Пользователь успешно зарегистрирован"
+
+#: task_manager/users/views.py:36
+msgid "User successfully changed"
+msgstr "Пользователь успешно изменен"
+
+#: task_manager/users/views.py:49
 msgid "User deleted successfully"
 msgstr "Пользователь успешно удален"
 
-#: task_manager/views.py:16
+#: task_manager/views.py:15
 msgid "Login successfully"
 msgstr "Вы залогинены"
 
-#: task_manager/views.py:20
+#: task_manager/views.py:19
 msgid "Login Error"
 msgstr ""
 "Пожалуйста, введите правильные имя пользователя и пароль. Оба поля могут "
 "быть чувствительны к регистру."
 
-#: task_manager/views.py:28
+#: task_manager/views.py:25
 msgid "You are logged out"
 msgstr "Вы разлогинены"
 
@@ -88,7 +93,7 @@ msgstr "Менеджер задач"
 msgid "Users"
 msgstr "Пользователи"
 
-#: templates/base.html:27
+#: templates/base.html:27 templates/statuses/status_list.html:6
 msgid "Statuses"
 msgstr "Статусы"
 
@@ -100,15 +105,15 @@ msgstr "Метки"
 msgid "Tasks"
 msgstr "Задачи"
 
-#: templates/base.html:30
+#: templates/base.html:33
 msgid "Logout"
 msgstr "Выход"
 
-#: templates/base.html:34
+#: templates/base.html:40
 msgid "Login"
 msgstr "Вход"
 
-#: templates/base.html:35 templates/users/create_user.html:7
+#: templates/base.html:41 templates/users/create_user.html:7
 msgid "Registration"
 msgstr "Регистрация"
 
@@ -131,6 +136,30 @@ msgstr "Вход"
 #: templates/login.html:12
 msgid "Enter"
 msgstr "Войти"
+
+#: templates/statuses/status_list.html:7
+msgid "Create status"
+msgstr "Создать статус"
+
+#: templates/statuses/status_list.html:11
+msgid "Name"
+msgstr "Имя"
+
+#: templates/statuses/status_list.html:12 templates/users/users_list.html:12
+msgid "Creation date"
+msgstr "Дата создания"
+
+#: templates/statuses/status_list.html:13 templates/users/users_list.html:13
+msgid "Actions"
+msgstr "Действия"
+
+#: templates/statuses/status_list.html:21 templates/users/users_list.html:22
+msgid "Edit"
+msgstr "Изменить"
+
+#: templates/statuses/status_list.html:22 templates/users/users_list.html:23
+msgid "Delete"
+msgstr "Удалить"
 
 #: templates/users/create_user.html:11
 msgid "Register"
@@ -163,22 +192,6 @@ msgstr "Имя пользователя"
 #: templates/users/users_list.html:11
 msgid "Full name"
 msgstr "Полное имя"
-
-#: templates/users/users_list.html:12
-msgid "Creation date"
-msgstr "Дата создания"
-
-#: templates/users/users_list.html:13
-msgid "Actions"
-msgstr "Действия"
-
-#: templates/users/users_list.html:22
-msgid "Edit"
-msgstr "Изменить"
-
-#: templates/users/users_list.html:23
-msgid "Delete"
-msgstr "Удалить"
 
 #~ msgid "Username already exists"
 #~ msgstr "Пользователь с таким именем уже существует."
