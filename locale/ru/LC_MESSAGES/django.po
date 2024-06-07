@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-06 17:03+0000\n"
+"POT-Creation-Date: 2024-06-07 18:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,10 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: task_manager/statuses/views.py:19
+msgid "Status successfully created"
+msgstr "Статус успешно изменен"
 
 #: task_manager/users/forms.py:10
 msgid ""
@@ -48,7 +52,7 @@ msgstr "Введенные пароли не совпадают."
 
 #: task_manager/users/mixins.py:14
 msgid "You are not authorized! Please log in."
-msgstr ""
+msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
 
 #: task_manager/users/mixins.py:34 task_manager/users/views.py:37
 #: task_manager/users/views.py:50
@@ -137,9 +141,14 @@ msgstr "Вход"
 msgid "Enter"
 msgstr "Войти"
 
+#: templates/statuses/status_create.html:7
 #: templates/statuses/status_list.html:7
 msgid "Create status"
 msgstr "Создать статус"
+
+#: templates/statuses/status_create.html:11
+msgid "Create"
+msgstr "Создать"
 
 #: templates/statuses/status_list.html:11
 msgid "Name"
