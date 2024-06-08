@@ -1,13 +1,19 @@
 from django.test import TestCase
 from task_manager.statuses.models import Statuses
 from django.urls import reverse
+from django.contrib.auth import get_user_model
 
 
 class TestStatusUpdate(TestCase):
-    fixtures = ['db_statuses.json']
+    fixtures = ['db_statuses.json', 'db_user.json']
 
     def test_status_update(self):
-        new_status = 'Finish'
-        self.client.post(reverse('statuse:update_status', new_status))
-        update_status = Statuses.objects.get(kwargs={'pk': 1})
-        self.assertEqual(update_status.name, new_status)
+        new_status = {'name': 'Finish'}
+        user = get_user_model().objects.all().first()
+        self.client.force_login(user)
+        self.client.post(
+            reverse('statuses:update_status', kwargs={'pk': 1}),
+            new_status
+        )
+        update_status = Statuses.objects.get(pk=1)
+        self.assertEqual(update_status.name, new_status['name'])

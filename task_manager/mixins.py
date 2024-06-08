@@ -35,4 +35,3 @@ class UserPassesTestCustomMixin:
             )
             return redirect('users:list_users')
         return super().dispatch(request, *args, **kwargs)
-

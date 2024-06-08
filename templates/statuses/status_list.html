@@ -15,7 +15,7 @@
         {% for status in object_list %}
             <tr>
                 <td> {{status.id}}</td>
-                <td> {{status.username}}</td>
+                <td> {{status.name}}</td>
                 <td> {{status.creation_date|date:'d.m.Y H:i'}}</td>
                 <td>
                     <a href = "{% url 'statuses:update_status' status.id %}">{% translate "Edit" %}</a><br>

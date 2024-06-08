@@ -10,6 +10,6 @@ class TestStatusDelete(TestCase):
     def test_status_update(self):
         user = get_user_model().objects.all().first()
         self.client.force_login(user)
-        self.client.post(reverse('statuse:delete_status', kwargs={'pk': 1}))
+        self.client.post(reverse('statuses:delete_status', kwargs={'pk': 1}))
         statuses = Statuses.objects.all()
         self.assertEqual(statuses.count(), 0)

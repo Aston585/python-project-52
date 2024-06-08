@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<div class="container flex-grow-1">
+	<h1 class="my-4"> {% translate "Status change" %}</h1>
+	<form method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+		{% bootstrap_button button_type="submit" content=_("Change") %}
+	</form>
+</div>
+{% endblock %}
