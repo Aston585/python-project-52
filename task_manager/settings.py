@@ -148,5 +148,5 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 FIXTURE_DIRS = [
-    os.path.join(BASE_DIR, 'task_manager/tests/fixtures'),
+    os.path.join(BASE_DIR, 'tests/fixtures'),
 ]

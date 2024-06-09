@@ -1,5 +1,5 @@
 from django.test import TestCase
-from task_manager.statuses.models import Statuses
+from task_manager.statuses.models import Status
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 
@@ -15,5 +15,5 @@ class TestStatusUpdate(TestCase):
             reverse('statuses:update_status', kwargs={'pk': 1}),
             new_status
         )
-        update_status = Statuses.objects.get(pk=1)
+        update_status = Status.objects.get(pk=1)
         self.assertEqual(update_status.name, new_status['name'])

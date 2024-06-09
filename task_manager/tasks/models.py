@@ -11,7 +11,7 @@ class Task(models.Model):
         on_delete=models.PROTECT,
         blank=True,
         null=True,
-        related_name='tasks_with_this_executors'
+        related_name='tasks_with_this_executor'
     )
     status = models.ForeignKey(
         Status,
@@ -23,7 +23,7 @@ class Task(models.Model):
     author = models.ForeignKey(
         get_user_model(),
         on_delete=models.PROTECT,
-        related_name='tasks_with_this_authors',
+        related_name='tasks_with_this_author',
         blank=False,
         null=False,
     )

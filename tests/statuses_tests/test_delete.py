@@ -1,5 +1,5 @@
 from django.test import TestCase
-from task_manager.statuses.models import Statuses
+from task_manager.statuses.models import Status
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 
@@ -11,5 +11,5 @@ class TestStatusDelete(TestCase):
         user = get_user_model().objects.all().first()
         self.client.force_login(user)
         self.client.post(reverse('statuses:delete_status', kwargs={'pk': 1}))
-        statuses = Statuses.objects.all()
+        statuses = Status.objects.all()
         self.assertEqual(statuses.count(), 0)
