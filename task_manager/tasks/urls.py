@@ -16,5 +16,5 @@ urlpatterns = [
         views.TasksDeleteView.as_view(),
         name='delete_task'
     ),
-    path('<int:pk>/', views.TaskDetailView.as_view(), name='show_task'),
+    path('<int:pk>/', views.TaskDetailView.as_view(), name='detail_task'),
 ]
