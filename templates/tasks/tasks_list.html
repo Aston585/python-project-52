@@ -20,11 +20,11 @@
 			{% for task in object_list %}
 					<tr>
 							<td> {{task.id}}</td>
-							<td> {{task.name}}</td>
+							<td> <a href="{% url 'tasks:detail_task' task.id %}">{{task.name}}</a></td>
 							<td> {{task.status}}</td>
 							<td> {{task.author}}</td>
 							<td> {{task.executor}}</td>
-							<td> {{status.creation_date|date:'d.m.Y H:i'}}</td>
+							<td> {{task.creation_date|date:'d.m.Y H:i'}}</td>
 							<td>
 									<a href = "{% url 'tasks:update_task' task.id %}">{% translate "Edit" %}</a><br>
 									<a href = "{% url 'tasks:delete_task' task.id %}">{% translate "Delete" %}</a>
