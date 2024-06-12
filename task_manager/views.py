@@ -2,6 +2,8 @@ from django.contrib import messages
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import TemplateView
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth import logout as auth_logout
+from django.http import HttpResponseRedirect
 
 
 class HomePageView(TemplateView):
@@ -20,7 +22,11 @@ class Login(LoginView):
         return super().form_invalid(form)
 
 
-class Logout(LogoutView):  # !Не появляется флеш после логаута!
-    def dispatch(self, request, *args, **kwargs):
-        messages.info(self.request, _("You are logged out"))
-        return super().dispatch(request, *args, **kwargs)
+class Logout(LogoutView):
+    def post(self, request, *args, **kwargs):
+        auth_logout(request)
+        messages.info(self.request,  _('You are logged out'))
+        redirect_to = self.get_success_url()
+        if redirect_to != request.get_full_path():
+            return HttpResponseRedirect(redirect_to)
+        return super().get(request, *args, **kwargs)

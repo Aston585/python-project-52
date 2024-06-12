@@ -3,16 +3,15 @@
 {% load i18n %}
 
 {% block content %}
-<div class="container flex-grow-1">
-	<h1 class="my-4">
-	</h1>
-<h1 class="my-4"></h1>
-<div class="card">
-	<div class="card-body p-5 bg-light">
-	<div class="display-4">{% translate "Hello from Hexlet!" %}</div>
-		<p class="lead">{% translate "Practical courses in programming" %}</p>
-		<hr>
-	<a class="btn btn-primary btn-lg" href="https://ru.hexlet.io">{% translate "To learn more" %}</a>
+<div class="container wrapper flex-grow-1">
+	<h1 class="my-4"></h1>
+	<div class="card">
+		<div class="card-body p-5 bg-light">
+			<div class="display-4">{% translate "Hello from Hexlet!" %}</div>
+			<p class="lead">{% translate "Practical courses in programming" %}</p>
+			<hr>
+			<a class="btn btn-primary btn-lg" href="https://ru.hexlet.io">{% translate "To learn more" %}</a>
+		</div>
 	</div>
 </div>
 {% endblock %}

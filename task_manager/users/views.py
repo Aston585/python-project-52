@@ -8,6 +8,9 @@ from task_manager.mixins import (
     LoginRequiredCustomMixin,
     UserPassesTestCustomMixin,
 )
+from django.contrib import messages
+from django.shortcuts import redirect
+from django.db.models import ProtectedError
 
 
 class ListUsersView(ListView):
@@ -47,4 +50,14 @@ class UserDeleteView(
     template_name = 'users/delete_user.html'
     success_url = reverse_lazy('users:list_users')
     success_message = _('User deleted successfully')
-    failure_message = _('You do not have permission to change another user.')
+    failure_message = _('Cannot delete user because it is in use')
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        try:
+            self.object.delete()
+            messages.success(request, self.success_message)
+            return redirect(self.success_url)
+        except ProtectedError:
+            messages.error(request, self.failure_message)
+            return redirect(request.META.get('HTTP_REFERER', self.success_url))

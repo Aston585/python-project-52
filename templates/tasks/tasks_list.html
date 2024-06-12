@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
+{% load django_bootstrap5 %}
 {% load i18n %}
 
 {% block content %}
 <div class="container flex-grow-1">
 	<h1 class="my-4"> {% translate "Tasks" %}</h1>
 	<a class="btn btn-primary mb-3" href="{% url 'tasks:create_task' %}">{% translate "Create task" %}</a>
+	{% include "tasks/filter.html" %}
 	<table class = "table table-striped">
 			<tr>
 					<th>ID</th>
