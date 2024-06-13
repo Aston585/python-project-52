@@ -1,4 +1,4 @@
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from task_manager.mixins import LoginRequiredCustomMixin
 from django.contrib.messages.views import SuccessMessageMixin
@@ -8,11 +8,16 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
 from django.shortcuts import redirect
+from django_filters.views import FilterView
+from task_manager.tasks.filters import TaskFilter
 
 
-class TasksListVew(LoginRequiredCustomMixin, ListView):
+class TasksListVew(
+    LoginRequiredCustomMixin,
+    FilterView,
+):
     template_name = 'tasks/tasks_list.html'
-    model = Task
+    filterset_class = TaskFilter
 
 
 class TaskCreateView(

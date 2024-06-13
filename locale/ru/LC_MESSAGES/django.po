@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-12 17:30+0000\n"
+"POT-Creation-Date: 2024-06-13 15:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,6 +50,10 @@ msgstr "Статус успешно удален"
 msgid "Cannot delete status because it is in use"
 msgstr "Невозможно удалить статус, потому что он используется"
 
+#: task_manager/tasks/filters.py:10
+msgid "Only your tasks"
+msgstr "Только свои задачи"
+
 #: task_manager/tasks/forms.py:19 task_manager/tasks/forms.py:27
 msgid "Description"
 msgstr "Описание"
@@ -64,19 +68,19 @@ msgstr "Исполнитель"
 msgid "Status"
 msgstr "Статус"
 
-#: task_manager/tasks/views.py:26
+#: task_manager/tasks/views.py:31
 msgid "Task created successfully"
 msgstr "Задача успешно создана"
 
-#: task_manager/tasks/views.py:42
+#: task_manager/tasks/views.py:47
 msgid "Task modified successfully"
 msgstr "Задача успешно изменена"
 
-#: task_manager/tasks/views.py:53
+#: task_manager/tasks/views.py:58
 msgid "Task deleted successfully"
 msgstr "Задача успешно удалена"
 
-#: task_manager/tasks/views.py:54
+#: task_manager/tasks/views.py:59
 msgid "Only its author can delete a task"
 msgstr "Задачу может удалить только ее автор"
 
@@ -243,6 +247,10 @@ msgstr "Изменить статус"
 #: templates/users/update_user.html:11
 msgid "Change"
 msgstr "Изменить"
+
+#: templates/tasks/filter.html:10
+msgid "Show"
+msgstr "Показать"
 
 #: templates/tasks/task_create.html:9 templates/tasks/tasks_list.html:8
 msgid "Create task"
