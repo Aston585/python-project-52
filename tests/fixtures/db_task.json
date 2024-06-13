@@ -1,0 +1,40 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "first_name": "Viktor",
+            "last_name": "Bagrov",
+            "username": "viktorbagrov"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "first_name": "Danila",
+            "last_name": "Bagrov",
+            "username": "danilabagrov"
+        }
+    },
+    {
+        "model": "statuses.status",
+        "pk": 1,
+        "fields": {
+            "name": "Started",
+            "creation_date": "2024-06-13T09:17:00+03:00"
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 1,
+        "fields": {
+            "name": "Kill Chechen",
+            "description": "Kill Chechen in market",
+            "executor": 1,
+            "status": 1,
+            "author": 1,
+            "creation_date": "2024-06-13T10:42:00+03:00"
+        }
+    }
+  ]
