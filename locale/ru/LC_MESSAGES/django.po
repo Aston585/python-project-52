@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-14 05:12+0000\n"
+"POT-Creation-Date: 2024-06-14 09:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: task_manager/labels/forms.py:10 task_manager/labels/forms.py:11
 #: task_manager/statuses/forms.py:10 task_manager/statuses/forms.py:11
-#: task_manager/tasks/forms.py:17 task_manager/tasks/forms.py:26
+#: task_manager/tasks/forms.py:18 task_manager/tasks/forms.py:28
 #: templates/labels/labels_list.html:11 templates/statuses/status_list.html:11
 #: templates/tasks/tasks_list.html:13
 msgid "Name"
@@ -68,23 +68,28 @@ msgstr "Статус успешно удален"
 msgid "Cannot delete status because it is in use"
 msgstr "Невозможно удалить статус, потому что он используется"
 
-#: task_manager/tasks/filters.py:12 task_manager/tasks/forms.py:22
-#: task_manager/tasks/forms.py:29 templates/tasks/task_detail.html:27
+#: task_manager/tasks/filters.py:13 task_manager/tasks/forms.py:23
+#: task_manager/tasks/forms.py:31 templates/tasks/task_detail.html:27
 #: templates/tasks/tasks_list.html:14
 msgid "Status"
 msgstr "Статус"
 
-#: task_manager/tasks/filters.py:16 task_manager/tasks/forms.py:21
-#: task_manager/tasks/forms.py:28 templates/tasks/task_detail.html:23
+#: task_manager/tasks/filters.py:17 task_manager/tasks/forms.py:22
+#: task_manager/tasks/forms.py:30 templates/tasks/task_detail.html:23
 #: templates/tasks/tasks_list.html:16
 msgid "Executor"
 msgstr "Исполнитель"
 
-#: task_manager/tasks/filters.py:19
+#: task_manager/tasks/filters.py:21 task_manager/tasks/forms.py:24
+#: task_manager/tasks/forms.py:32
+msgid "Label"
+msgstr "Метка"
+
+#: task_manager/tasks/filters.py:25
 msgid "Only your tasks"
 msgstr "Только свои задачи"
 
-#: task_manager/tasks/forms.py:19 task_manager/tasks/forms.py:27
+#: task_manager/tasks/forms.py:20 task_manager/tasks/forms.py:29
 msgid "Description"
 msgstr "Описание"
 
@@ -177,6 +182,7 @@ msgid "Statuses"
 msgstr "Статусы"
 
 #: templates/base.html:28 templates/labels/labels_list.html:6
+#: templates/tasks/task_detail.html:35
 msgid "Labels"
 msgstr "Метки"
 
@@ -255,13 +261,13 @@ msgid "Actions"
 msgstr "Действия"
 
 #: templates/labels/labels_list.html:21 templates/statuses/status_list.html:21
-#: templates/tasks/task_detail.html:37 templates/tasks/tasks_list.html:29
+#: templates/tasks/task_detail.html:47 templates/tasks/tasks_list.html:29
 #: templates/users/users_list.html:22
 msgid "Edit"
 msgstr "Изменить"
 
 #: templates/labels/labels_list.html:22 templates/statuses/status_list.html:22
-#: templates/tasks/task_detail.html:39 templates/tasks/tasks_list.html:30
+#: templates/tasks/task_detail.html:49 templates/tasks/tasks_list.html:30
 #: templates/users/users_list.html:23
 msgid "Delete"
 msgstr "Удалить"

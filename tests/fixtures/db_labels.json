@@ -1,0 +1,10 @@
+[
+    {
+      "model": "labels.label",
+      "pk": 1,
+      "fields": {
+          "name": "Super label",
+          "creation_date": "2024-07-06T20:17:00+03:00"
+        }
+    }
+  ]

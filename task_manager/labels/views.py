@@ -51,12 +51,13 @@ class LabelDeleteView(
     success_url = reverse_lazy('labels:list_labels')
     success_message = _('Label successfully deleted')
 
-    def delete(self, request, *args, **kwargs):
-        label = self.get_object()
-        if label.tasks_with_this_label.exists():
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        if self.object.tasks_with_this_label.exists():
             messages.error(
                 request,
                 _('Cannot delete label because it is in use')
             )
             return redirect(self.success_url)
-        return super().delete(request, *args, **kwargs)
+        context = self.get_context_data(object=self.object)
+        return self.render_to_response(context)
