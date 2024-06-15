@@ -4,7 +4,7 @@ build:
 	./build.sh
 
 install:
-	poetry install
+	poetry install --only main
 
 PORT ?= 8000
 start:

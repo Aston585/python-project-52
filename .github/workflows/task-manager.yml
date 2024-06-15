@@ -16,8 +16,11 @@ jobs:
         run: flake8 task_manager --exclude migrations
       - name: Install app
         run: |
-            pip install poetry
-            make install
+            curl -sSL https://install.python-poetry.org | python3 -
+      - name: Add Poetry to PATH
+        run: echo "${HOME}/.local/bin" >> $GITHUB_PATH
+      - name: Install dependencies
+        run: make install
       - name: Run tests
         env:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
