@@ -1,18 +1,17 @@
-PORT ?= 8000
+.PHONY: dev trans compile migrate test clean_pycache clean_migrate
+
+build:
+	./build.sh
 
 install:
 	poetry install --no-dev
 
+PORT ?= 8000
 start:
-	poetry run gunicorn -w 5 -b 0.0.0.0:$(PORT) task_manager:app
+	poetry run gunicorn -w 5 -b 0.0.0.0:$(PORT) task_manager.wsgi
 
 lint:
 	poetry run flake8 task_manager --exclude migrations
-
-# build:
-# 	./build.sh
-
-.PHONY: dev trans compile migrate test reset_db clean
 
 dev:
 	python manage.py runserver

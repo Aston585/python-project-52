@@ -1,4 +1,3 @@
-isues.txt
 .env
 .env/
 .venv/
@@ -36,4 +35,4 @@ pip-log.txt
 
 /releases/*
 pip-wheel-metadata
-/poetry.toml
+/poetry.toml.env
