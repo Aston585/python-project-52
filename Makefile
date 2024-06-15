@@ -27,7 +27,7 @@ migrate:
 	python manage.py migrate
 	
 test:
-	python manage.py test
+	poetry run python3 manage.py test
 	
 clean_pycache:
 	rm -rf */*/__pycache__
