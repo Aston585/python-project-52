@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           poetry shell
-          make install
+          poetry install
       - name: Run migrations
         run: make migrate
       - name: Run tests
