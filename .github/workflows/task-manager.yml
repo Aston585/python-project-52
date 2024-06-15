@@ -1,4 +1,4 @@
-name: 
+name: Linting and testing
 on: [push]
 jobs:
   build:
