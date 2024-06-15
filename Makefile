@@ -23,8 +23,8 @@ compile:
 	python manage.py compilemessages
 	
 migrate:
-	python manage.py makemigrations
-	python manage.py migrate
+	python manage.py makemigrations --noinput
+	python manage.py migrate --noinput
 	
 test:
 	python manage.py test
