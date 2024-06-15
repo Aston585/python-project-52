@@ -59,11 +59,10 @@ class TaskDeleteView(
     error_message = _('Only its author can delete a task')
 
     def get(self, request, *args, **kwargs):
-        curent_task = self.get_object()
-        if curent_task.author != request.user:
+        self.object = self.get_object()
+        if self.object.author != request.user:
             messages.error(self.request, self.error_message)
             return redirect(self.success_url)
-        self.object = self.get_object()
         context = self.get_context_data(object=self.object)
         return self.render_to_response(context)
 

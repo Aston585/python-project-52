@@ -11,4 +11,4 @@ class TaskDeleteTest(TestCase):
         author = get_user_model().objects.get(pk=1)
         self.client.force_login(author)
         self.client.post(reverse('tasks:delete_task', kwargs={'pk': 1}))
-        self.assertEqual(Task.objects.count(), 0)
+        self.assertEqual(Task.objects.count(), 2)

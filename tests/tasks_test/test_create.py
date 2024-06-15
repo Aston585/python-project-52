@@ -20,4 +20,4 @@ class TaskCreateTest(TestCase):
             'status': status.id
         }
         self.client.post(reverse('tasks:create_task'), data_create)
-        self.assertEqual(Task.objects.count(), 2)
+        self.assertEqual(Task.objects.count(), 4)

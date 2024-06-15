@@ -26,6 +26,30 @@
         }
     },
     {
+        "model": "labels.label",
+        "pk": 1,
+        "fields": {
+            "name": "label 1",
+            "creation_date": "2024-06-13T09:18:00+03:00"
+        }
+    },
+    {
+        "model": "labels.label",
+        "pk": 2,
+        "fields": {
+            "name": "label 2",
+            "creation_date": "2024-06-13T09:18:00+03:00"
+        }
+    },
+    {
+        "model": "labels.label",
+        "pk": 3,
+        "fields": {
+            "name": "label 3",
+            "creation_date": "2024-06-13T09:18:00+03:00"
+        }
+    },
+    {
         "model": "tasks.task",
         "pk": 1,
         "fields": {
@@ -34,7 +58,34 @@
             "executor": 1,
             "status": 1,
             "author": 1,
-            "creation_date": "2024-06-13T10:42:00+03:00"
+            "creation_date": "2024-06-13T10:42:00+03:00",
+            "label": [1]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 2,
+        "fields": {
+            "name": "Second test task",
+            "description": "Description second test task",
+            "executor": 2,
+            "status": 1,
+            "author": 1,
+            "creation_date": "2024-06-15T08:20:00+03:00",
+            "label": [1, 2]
+        }
+    },
+    {
+        "model": "tasks.task",
+        "pk": 3,
+        "fields": {
+            "name": "Third test task",
+            "description": "Description third test task",
+            "executor": 2,
+            "status": 1,
+            "author": 2,
+            "creation_date": "2024-06-15T08:27:00+03:00",
+            "label": [1, 2, 3]
         }
     }
   ]
