@@ -1,8 +1,5 @@
-name: linter-check
+name: 
 on: [push]
-env:
-  SECRET_KEY: ${{ secrets.DJANGO_SECRET }}
-  DATABASE_URL: 'sqlite:///db.sqlite3'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,13 +12,8 @@ jobs:
           python-version: '3.x'
       - name: Install flake8
         run: python -m pip install flake8
-      - name: Linter chek
+      - name: Linter check
         run: flake8 task_manager --exclude migrations
-      - name: Install app
-        run: |
-            python -m pip install --upgrade pip
-            pip install poetry
-            make install
       - name: Run tests
         run: make test
       - name: Deploy on the Render

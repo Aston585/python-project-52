@@ -34,3 +34,4 @@ clean_pycache:
 
 clean_migrate:
 	rm -f */*/*/0*.py
+
