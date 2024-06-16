@@ -31,7 +31,8 @@ test:
 	
 coverage:
 	poetry run python -m coverage run manage.py test
-	
+	poetry run coverage xml
+
 clean_pycache:
 	rm -rf */*/__pycache__
 

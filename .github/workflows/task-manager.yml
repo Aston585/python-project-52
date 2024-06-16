@@ -30,7 +30,7 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
           SECRET_KEY: ${{ secrets.DJANGO_SECRET }}
         with:
-          coverageCommand: make test-coverage
+          coverageCommand: make coverage
           debug: true
       - name: Deploy on the Render
         run: curl "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
