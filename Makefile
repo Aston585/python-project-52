@@ -29,6 +29,9 @@ migrate:
 test:
 	poetry run python3 manage.py test
 	
+coverage:
+	poetry run python -m coverage run manage.py test
+	
 clean_pycache:
 	rm -rf */*/__pycache__
 
