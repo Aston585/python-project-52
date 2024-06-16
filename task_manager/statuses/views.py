@@ -31,6 +31,7 @@ class StatusesCreateView(
 
 class StatusUpdateView(
     LoginRequiredCustomMixin,
+    SuccessMessageMixin,
     UpdateView,
 ):
     template_name = 'statuses/status_update.html'
@@ -42,6 +43,7 @@ class StatusUpdateView(
 
 class StatusDeleteView(
     LoginRequiredCustomMixin,
+    SuccessMessageMixin,
     DeleteView,
 ):
     template_name = 'statuses/status_delete.html'
