@@ -1,7 +1,7 @@
 name: Linting, testing and deployment
 on: push
 env:
-  SECRET_KEY: ${{ secrets.DJANGO_SECRET }}
+  SECRET_KEY: ${{ secrets.SECRET_KEY }}
   DATABASE_URL: 'sqlite:///db.sqlite3'
 jobs:
   build:
@@ -28,7 +28,7 @@ jobs:
         uses: paambaati/codeclimate-action@v8.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-          SECRET_KEY: ${{ secrets.DJANGO_SECRET }}
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
         with:
           coverageCommand: make test-coverage
           debug: true

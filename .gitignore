@@ -5,6 +5,7 @@ env/
 venv/
 *.env
 .gitignore
+coverage.xml
 
 *.pyc
 db.sqlite3
