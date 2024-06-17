@@ -26,8 +26,8 @@ class TaskForm(forms.ModelForm):
 
         labels = {
             'name': _('Name'),
-            'description':  _('Description'),
-            'executor':  _('Executor'),
-            'status':   _('Status'),
-            'labels':   _('Labels'),
+            'description': _('Description'),
+            'executor': _('Executor'),
+            'status': _('Status'),
+            'labels': _('Labels'),
         }

@@ -24,7 +24,7 @@ class UserUpdateTest(TestCase):
         )
         update_user = get_user_model().objects.filter(
             username=fixture.get('username')
-            ).first()
+        ).first()
         self.assertEqual(
             update_user.username,
             fixture.get('username')

@@ -25,7 +25,7 @@ class Login(LoginView):
 class Logout(LogoutView):
     def post(self, request, *args, **kwargs):
         auth_logout(request)
-        messages.info(self.request,  _('You are logged out'))
+        messages.info(self.request, _('You are logged out'))
         redirect_to = self.get_success_url()
         if redirect_to != request.get_full_path():
             return HttpResponseRedirect(redirect_to)
