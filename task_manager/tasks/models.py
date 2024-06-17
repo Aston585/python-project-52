@@ -29,7 +29,7 @@ class Task(models.Model):
         null=False,
     )
     creation_date = models.DateTimeField(auto_now_add=True)
-    label = models.ManyToManyField(
+    labels = models.ManyToManyField(
         Label,
         related_name='tasks_with_this_label',
         blank=True)
