@@ -20,7 +20,7 @@ class UserUpdateTest(TestCase):
         self.client.force_login(user)
         self.client.post(
             reverse("users:update_user", kwargs={"pk": 1}),
-            fixture
+            fixture,
         )
         u = get_user_model().objects.filter(username=fixture.get("username"))
         self.assertEqual(u.first().username, fixture.get("username"))
