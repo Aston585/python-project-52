@@ -15,7 +15,7 @@ class TaskListTest(TestCase):
         self.assertEqual(tasks.count(), 3)
 
         data_filter = {
-            'label': 2,
+            'labels': 2,
             'executor': 2
         }
         response = self.client.get(reverse('tasks:list_tasks'), data_filter)
