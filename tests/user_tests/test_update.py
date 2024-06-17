@@ -18,7 +18,7 @@ class UserUpdateTest(TestCase):
         fixture = self.load_fixture()
         user = get_user_model().objects.all().first()
         self.client.force_login(user)
-        self.client.post(reverse("users:update_user",
-                                 kwargs={"pk": 1}), fixture)
+        url = reverse("users:update_user", kwargs={"pk": 1})
+        self.client.post(url, fixture)
         u = get_user_model().objects.filter(username=fixture.get("username"))
         self.assertEqual(u.first().username, fixture.get("username"))
