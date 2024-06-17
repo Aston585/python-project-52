@@ -11,9 +11,7 @@ class TestStatusUpdate(TestCase):
         new_status = {'name': 'Finish'}
         user = get_user_model().objects.all().first()
         self.client.force_login(user)
-        self.client.post(
-            reverse('statuses:update_status', kwargs={'pk': 1}),
-            new_status
-        )
+        url = reverse('statuses:update_status', kwargs={'pk': 1})
+        self.client.post(url, new_status)
         update_status = Status.objects.get(pk=1)
         self.assertEqual(update_status.name, new_status['name'])

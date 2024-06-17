@@ -11,9 +11,7 @@ class TestLabelUpdate(TestCase):
         new_label = {'name': 'Super label'}
         user = get_user_model().objects.all().first()
         self.client.force_login(user)
-        self.client.post(
-            reverse('labels:update_label', kwargs={'pk': 1}),
-            new_label
-        )
+        url = reverse('labels:update_label', kwargs={'pk': 1})
+        self.client.post(url, new_label)
         update_label = Label.objects.get(pk=1)
         self.assertEqual(update_label.name, new_label['name'])

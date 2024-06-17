@@ -19,9 +19,7 @@ class TaskUpdateTest(TestCase):
             'executor': executor.id,
             'status': status.id
         }
-        self.client.post(
-            reverse('tasks:update_task', kwargs={'pk': 1}),
-            data_update
-        )
+        url = reverse('tasks:update_task', kwargs={'pk': 1})
+        self.client.post(url, data_update)
         new_executor = Task.objects.get(pk=1).executor
         self.assertEqual(new_executor.id, executor.id)

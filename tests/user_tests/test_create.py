@@ -16,10 +16,5 @@ class UserCreateTest(TestCase):
     def test_user_create(self):
         fixture = self.load_fixture()
         self.client.post(reverse('users:create_user'), fixture)
-        new_user = get_user_model().objects.filter(
-            username=fixture.get('username')
-            ).first()
-        self.assertEqual(
-            new_user.username,
-            fixture.get('username')
-        )
+        u = get_user_model().objects.filter(username=fixture.get('username'))
+        self.assertEqual(u.first().username, fixture.get('username'))
