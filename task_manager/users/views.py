@@ -9,9 +9,6 @@ from task_manager.mixins import (
     UserPassesTestCustomMixin,
     DeleteProtectionMixin,
 )
-from django.contrib import messages
-from django.shortcuts import redirect
-from django.db.models import ProtectedError
 
 
 class ListUsersView(ListView):
