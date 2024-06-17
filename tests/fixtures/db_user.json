@@ -1,6 +1,6 @@
 [
     {
-        "model": "auth.user",
+        "model": "users.appuser",
         "pk": 1,
         "fields": {
             "first_name": "Danila",

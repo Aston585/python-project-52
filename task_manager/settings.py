@@ -69,6 +69,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'task_manager.urls'
 
+AUTH_USER_MODEL = 'users.AppUser'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -105,22 +107,19 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.'
-                'UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.'
                 'MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.'
-                'CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.'
-                'NumericPasswordValidator',
+        'OPTIONS': {'min_length': 3, },
     },
 ]
 
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.'
+                'MinimumLengthValidator',
+        'OPTIONS': {'min_length': 3, }
+    },
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/

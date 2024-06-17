@@ -1,4 +1,4 @@
-from task_manager.users.forms import UserCreateForm
+from task_manager.users.forms import UserCreation
 from django.contrib.auth import get_user_model
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -7,6 +7,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from task_manager.mixins import (
     LoginRequiredCustomMixin,
     UserPassesTestCustomMixin,
+    DeleteProtectionMixin,
 )
 from django.contrib import messages
 from django.shortcuts import redirect
@@ -20,7 +21,7 @@ class ListUsersView(ListView):
 
 class UserCreateView(SuccessMessageMixin, CreateView):
     model = get_user_model()
-    form_class = UserCreateForm
+    form_class = UserCreation
     template_name = 'users/create_user.html'
     success_url = reverse_lazy('login')
     success_message = _('User successfully registered')
@@ -33,7 +34,7 @@ class UserUpdateView(
     UpdateView,
 ):
     model = get_user_model()
-    form_class = UserCreateForm
+    form_class = UserCreation
     template_name = 'users/update_user.html'
     success_url = reverse_lazy('users:list_users')
     success_message = _('User successfully changed')
@@ -43,6 +44,7 @@ class UserUpdateView(
 class UserDeleteView(
     UserPassesTestCustomMixin,
     LoginRequiredCustomMixin,
+    DeleteProtectionMixin,
     SuccessMessageMixin,
     DeleteView,
 ):
@@ -50,14 +52,5 @@ class UserDeleteView(
     template_name = 'users/delete_user.html'
     success_url = reverse_lazy('users:list_users')
     success_message = _('User deleted successfully')
-    failure_message = _('Cannot delete user because it is in use')
-
-    def delete(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        try:
-            self.object.delete()
-            messages.success(request, self.success_message)
-            return redirect(self.success_url)
-        except ProtectedError:
-            messages.error(request, self.failure_message)
-            return redirect(request.META.get('HTTP_REFERER', self.success_url))
+    protected_url = reverse_lazy('users:list_users')
+    protected_message = _('Cannot delete user because it is in use')

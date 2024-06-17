@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.contrib.auth.mixins import AccessMixin
+from django.db.models import ProtectedError
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 
@@ -35,3 +36,15 @@ class UserPassesTestCustomMixin:
             )
             return redirect('users:list_users')
         return super().dispatch(request, *args, **kwargs)
+
+
+class DeleteProtectionMixin:
+    protected_message = None
+    protected_url = None
+
+    def post(self, request, *args, **kwargs):
+        try:
+            return super().post(request, *args, **kwargs)
+        except ProtectedError:
+            messages.error(request, self.protected_message)
+            return redirect(self.protected_url)
