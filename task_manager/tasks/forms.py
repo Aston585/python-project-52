@@ -21,7 +21,7 @@ class TaskForm(forms.ModelForm):
             ),
             'executor': forms.Select(attrs={'placeholder': _('Executor')}),
             'status': forms.Select(attrs={'placeholder': _('Status')}),
-            'label': forms.SelectMultiple(attrs={'placeholder': _('Label')}),
+            'label': forms.SelectMultiple(attrs={'placeholder': _('Labels')}),
         }
 
         labels = {
@@ -29,5 +29,5 @@ class TaskForm(forms.ModelForm):
             'description':  _('Description'),
             'executor':  _('Executor'),
             'status':   _('Status'),
-            'label':   _('Label'),
+            'label':   _('Labels'),
         }
