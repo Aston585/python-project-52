@@ -22,7 +22,5 @@ class UserUpdateTest(TestCase):
             reverse("users:update_user", kwargs={"pk": 1}),
             fixture
         )
-        up_user = get_user_model().objects.filter(
-            username=fixture.get("username"),
-        )
-        self.assertEqual(up_user.username.first(), fixture.get("username"))
+        u = get_user_model().objects.filter(username=fixture.get("username"))
+        self.assertEqual(u.first().username, fixture.get("username"))
