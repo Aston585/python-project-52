@@ -4,11 +4,17 @@
 
 {% block content %}
 <div class="container flex-grow-1">
-	<h1 class="my-4"> {% translate "Remove status" %}</h1>
+	<h1 class="my-4"> {{ header }}</h1>
 	<form method="post" class="form">
-	{% csrf_token %}
-	{% bootstrap_form form %}
-		<p>{% translate "Are you sure you want to delete" %} {{ object.name }}?</p>
+		{% csrf_token %}
+		{% bootstrap_form form %}
+		<p>{% translate "Are you sure you want to delete" %}
+			{% if object.get_full_name %}
+			{{ object.get_full_name }}
+			{% else %}
+			{{ object.name }}
+			{% endif %}
+		</p>
 		{% bootstrap_button button_type="submit" button_class="btn btn-danger" content=_("Yes, remove") %}
 	</form>
 </div>

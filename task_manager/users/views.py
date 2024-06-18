@@ -54,8 +54,11 @@ class UserDeleteView(
     DeleteView,
 ):
     model = get_user_model()
-    template_name = 'users/delete_user.html'
+    template_name = 'form_delete.html'
     success_url = reverse_lazy('users:list_users')
     success_message = _('User deleted successfully')
     protected_url = reverse_lazy('users:list_users')
     protected_message = _('Cannot delete user because it is in use')
+    extra_context = {
+        'header': _('Remove user'),
+    }

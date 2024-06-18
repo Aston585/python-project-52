@@ -54,10 +54,13 @@ class LabelDeleteView(
     SuccessMessageMixin,
     DeleteView,
 ):
-    template_name = 'labels/label_delete.html'
+    template_name = 'form_delete.html'
     model = Label
     success_url = reverse_lazy('labels:list_labels')
     success_message = _('Label successfully deleted')
+    extra_context = {
+        'header': _('Remove label'),
+    }
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()

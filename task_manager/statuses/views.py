@@ -53,9 +53,12 @@ class StatusDeleteView(
     SuccessMessageMixin,
     DeleteView,
 ):
-    template_name = 'statuses/status_delete.html'
+    template_name = 'form_delete.html'
     model = Status
     success_url = reverse_lazy('statuses:list_statuses')
     success_message = _('Status successfully deleted')
     protected_url = reverse_lazy('statuses:list_statuses')
     protected_message = _('Cannot delete status because it is in use')
+    extra_context = {
+        'header': _('Remove status'),
+    }

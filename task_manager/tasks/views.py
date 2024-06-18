@@ -60,11 +60,14 @@ class TaskDeleteView(
     SuccessMessageMixin,
     DeleteView,
 ):
-    template_name = 'tasks/task_delete.html'
+    template_name = 'form_delete.html'
     model = Task
     success_url = reverse_lazy('tasks:list_tasks')
     success_message = _('Task deleted successfully')
     error_message = _('Only its author can delete a task')
+    extra_context = {
+        'header': _('Remove task'),
+    }
 
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
