@@ -19,9 +19,13 @@ class ListUsersView(ListView):
 class UserCreateView(SuccessMessageMixin, CreateView):
     model = get_user_model()
     form_class = UserCreation
-    template_name = 'users/create_user.html'
+    template_name = 'form_create_update.html'
     success_url = reverse_lazy('login')
     success_message = _('User successfully registered')
+    extra_context = {
+        'header': _('Registration'),
+        'button': _('Register'),
+    }
 
 
 class UserUpdateView(
@@ -32,10 +36,14 @@ class UserUpdateView(
 ):
     model = get_user_model()
     form_class = UserCreation
-    template_name = 'users/update_user.html'
+    template_name = 'form_create_update.html'
     success_url = reverse_lazy('users:list_users')
     success_message = _('User successfully changed')
     failure_message = _('You do not have permission to change another user.')
+    extra_context = {
+        'header': _('Changing User'),
+        'button': _('Change'),
+    }
 
 
 class UserDeleteView(

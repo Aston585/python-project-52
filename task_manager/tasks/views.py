@@ -25,10 +25,14 @@ class TaskCreateView(
     SuccessMessageMixin,
     CreateView,
 ):
-    template_name = 'tasks/task_create.html'
+    template_name = 'form_create_update.html'
     form_class = TaskForm
     success_url = reverse_lazy('tasks:list_tasks')
     success_message = _('Task created successfully')
+    extra_context = {
+        'header': _('Create task'),
+        'button': _('Create'),
+    }
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -41,10 +45,14 @@ class TaskUpdateView(
     UpdateView,
 ):
     model = Task
-    template_name = 'tasks/task_update.html'
+    template_name = 'form_create_update.html'
     form_class = TaskForm
     success_url = reverse_lazy('tasks:list_tasks')
     success_message = _('Task modified successfully')
+    extra_context = {
+        'header': _('Task change'),
+        'button': _('Change'),
+    }
 
 
 class TaskDeleteView(
