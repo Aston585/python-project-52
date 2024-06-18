@@ -2,31 +2,33 @@ from django.contrib import messages
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import TemplateView
 from django.utils.translation import gettext_lazy as _
-from django.contrib.auth import logout as auth_logout
-from django.http import HttpResponseRedirect
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 class HomePageView(TemplateView):
     template_name = "index.html"
 
 
-class Login(LoginView):
+class Login(
+    SuccessMessageMixin,
+    LoginView,
+):
     template_name = "login.html"
-
-    def form_valid(self, form):
-        messages.success(self.request, _('Login successfully'))
-        return super().form_valid(form)
+    success_message = _('Login successfully')
+    failure_message = _('Please enter the correct username and password.'
+                        'Both fields can be case sensitive.')
 
     def form_invalid(self, form):
-        messages.error(self.request, _('Login Error'))
+        messages.error(self.request, self.failure_message)
         return super().form_invalid(form)
 
 
-class Logout(LogoutView):
-    def post(self, request, *args, **kwargs):
-        auth_logout(request)
-        messages.info(self.request, _('You are logged out'))
-        redirect_to = self.get_success_url()
-        if redirect_to != request.get_full_path():
-            return HttpResponseRedirect(redirect_to)
-        return super().get(request, *args, **kwargs)
+class Logout(
+    SuccessMessageMixin,
+    LogoutView,
+):
+    success_message = _('You are logged out')
+
+    def dispatch(self, request, *args, **kwargs):
+        messages.info(request, self.success_message)
+        return super().dispatch(request, *args, **kwargs)
